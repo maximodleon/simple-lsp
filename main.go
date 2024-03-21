@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-  logger := getLogger("/Users/yuli/workspace/edulsp/log.txt")
+  logger := getLogger("path")
   logger.Println("Hey, I started")
 
   scanner := bufio.NewScanner(os.Stdin)
