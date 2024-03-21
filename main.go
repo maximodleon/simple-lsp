@@ -52,7 +52,7 @@ func handleMessag(logger *log.Logger, writer io.Writer, state analysis.State, me
     case "textDocument/didOpen":
         var request lsp.DidOpenTextDocumentNotification
         if err := json.Unmarshal(contents, &request); err != nil {
-          logger.Printf("textDocument/didOpen: %s", err)
+          logger.Printf("textDocument/didOpen error: %s", err)
           return
         }
 
@@ -61,7 +61,7 @@ func handleMessag(logger *log.Logger, writer io.Writer, state analysis.State, me
     case "textDocument/didChange":
         var request lsp.TextDocumentDidChangeNotification
         if err := json.Unmarshal(contents, &request); err != nil {
-          logger.Printf("textDocument/didChange: %s", err)
+          logger.Printf("textDocument/didChange error: %s", err)
           return
         }
 
@@ -73,7 +73,7 @@ func handleMessag(logger *log.Logger, writer io.Writer, state analysis.State, me
     case "textDocument/hover":
        var request lsp.HoverRequest
        if err := json.Unmarshal(contents, &request); err != nil {
-         logger.Printf("textDocument/hover: %s", err)
+         logger.Printf("textDocument/hover error: %s", err)
          return
        }
 
